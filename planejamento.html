@@ -106,24 +106,6 @@ padding-left:18px;
 margin-bottom:6px;
 }
 
-.box{
-margin-top:15px;
-padding:15px;
-background:#1f2937;
-border-radius:8px;
-}
-
-.banco{
-background:#1f2937;
-padding:15px;
-margin-top:10px;
-border-radius:8px;
-}
-
-.banco strong{
-color:#22c55e;
-}
-
 img{
 width:100%;
 border-radius:12px;
@@ -177,11 +159,11 @@ color:#22c55e;
 
 <section class="container">
 
-<h1 class="titulo">Planejamento Financeiro Inteligente</h1>
+<h1 class="titulo">Diagnóstico Financeiro Inteligente</h1>
 
 <p class="sub">
-Este guia analisa sua situação financeira e mostra exatamente como organizar
-seu dinheiro, escolher bancos e usar crédito com inteligência.
+Esta análise avalia sua situação financeira com base em sua renda e gastos mensais
+e mostra exatamente como melhorar sua saúde financeira.
 </p>
 
 <div class="card">
@@ -198,8 +180,6 @@ seu dinheiro, escolher bancos e usar crédito com inteligência.
 
 <script>
 
-/* SEU SCRIPT ORIGINAL - NÃO FOI ALTERADO */
-
 let salario = Number(localStorage.getItem("salario")) || 0
 let gastos = Number(localStorage.getItem("gastos")) || 0
 
@@ -208,11 +188,58 @@ let sobra = salario - gastos
 let diagnostico=""
 let plano=""
 
-if(sobra < 0){
+if(salario === 0){
 
-diagnostico = "🔴 Diagnóstico: você está no vermelho."
+diagnostico="⚠️ Nenhum diagnóstico disponível."
 
-plano = `...`
+plano=`
+
+<div class="etapa">
+<h3>Preencha seus dados</h3>
+<p>Para gerar seu diagnóstico financeiro você precisa primeiro informar seu salário e seus gastos na calculadora financeira.</p>
+</div>
+
+<div class="etapa">
+<h3>Como fazer</h3>
+<ul class="lista">
+<li>Acesse a página Calculadora</li>
+<li>Informe sua renda mensal</li>
+<li>Informe seus gastos totais</li>
+<li>Volte aqui para ver a análise completa</li>
+</ul>
+</div>
+
+`
+
+}
+
+else if(sobra < 0){
+
+diagnostico="🔴 Diagnóstico: você está no vermelho."
+
+plano=`
+
+<div class="etapa">
+<h3>Situação atual</h3>
+<p>Seus gastos estão maiores que sua renda mensal. Isso indica risco de endividamento.</p>
+</div>
+
+<div class="etapa">
+<h3>Plano de recuperação</h3>
+<ul class="lista">
+<li>Cortar gastos não essenciais</li>
+<li>Evitar parcelamentos</li>
+<li>Negociar dívidas</li>
+<li>Criar controle mensal de despesas</li>
+</ul>
+</div>
+
+<div class="etapa">
+<h3>Meta</h3>
+<p>Equilibrar renda e despesas o mais rápido possível.</p>
+</div>
+
+`
 
 }
 
@@ -220,7 +247,23 @@ else if(sobra < salario*0.1){
 
 diagnostico="🟠 Diagnóstico: situação financeira frágil."
 
-plano=`...`
+plano=`
+
+<div class="etapa">
+<h3>Análise</h3>
+<p>Você possui pouca sobra no final do mês e está vulnerável a imprevistos.</p>
+</div>
+
+<div class="etapa">
+<h3>Melhorias recomendadas</h3>
+<ul class="lista">
+<li>Reduzir pequenos gastos</li>
+<li>Criar reserva de emergência</li>
+<li>Guardar pelo menos 10% da renda</li>
+</ul>
+</div>
+
+`
 
 }
 
@@ -228,7 +271,23 @@ else if(sobra < salario*0.3){
 
 diagnostico="🟡 Diagnóstico: situação financeira estável."
 
-plano=`...`
+plano=`
+
+<div class="etapa">
+<h3>Análise</h3>
+<p>Você possui um bom controle financeiro e consegue poupar parte da renda.</p>
+</div>
+
+<div class="etapa">
+<h3>Próximos passos</h3>
+<ul class="lista">
+<li>Criar reserva financeira</li>
+<li>Começar investimentos</li>
+<li>Planejar metas financeiras</li>
+</ul>
+</div>
+
+`
 
 }
 
@@ -236,7 +295,23 @@ else{
 
 diagnostico="🟢 Diagnóstico: excelente controle financeiro."
 
-plano=`...`
+plano=`
+
+<div class="etapa">
+<h3>Parabéns</h3>
+<p>Você possui ótima gestão financeira e sobra significativa mensal.</p>
+</div>
+
+<div class="etapa">
+<h3>Estratégia</h3>
+<ul class="lista">
+<li>Investir regularmente</li>
+<li>Diversificar renda</li>
+<li>Construir patrimônio</li>
+</ul>
+</div>
+
+`
 
 }
 
@@ -250,9 +325,9 @@ document.getElementById("plano").innerHTML=plano
 <p>© 2026 ENRIQUEÇA - Educação Financeira</p>
 
 <div class="footer-links">
-<a href="sobre.html">Sobre</a>
-<a href="contato.html">Contato</a>
-<a href="privacidade.html">Política de Privacidade</a>
+<a href="#">Sobre</a>
+<a href="#">Contato</a>
+<a href="#">Privacidade</a>
 </div>
 
 </footer>
